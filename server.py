@@ -27,7 +27,8 @@ def from_csv_full(filename, nrows=10, print_title=True, print_n_titles=20):
 
 sentences = from_csv_full('wikipedia_en_20.csv', nrows=2000, print_title=True, print_n_titles=20)
 embeddings = np.load('embeddings.npy')
-print('loading done !')
+print('embeddings and sentences loaded !')
+
 sentences = [(x[0],x[1], embeddings[i,:]) for i,x in enumerate(sentences)]
 model = SentenceTransformer('sentence-transformers/bert-base-nli-mean-tokens')
 print('model loaded')
