@@ -5,6 +5,9 @@ import cgi
 import re
 import numpy as np
 import pandas as pd
+import nltk
+from nltk.tokenize import sent_tokenize
+nltk.download('punkt')
 from sentence_transformers import SentenceTransformer
 import sqlite3
 from random import randint
