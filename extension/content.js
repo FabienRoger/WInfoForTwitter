@@ -1,9 +1,10 @@
 const baseURL = "http://localhost:8008"
 
 new MutationObserver(() => {
-  console.log('mutation');
+  //console.log('mutation');
+  
   const articles = document.querySelectorAll('article');
-  console.log(articles.length);
+  
   articles.forEach(elt => {
     const buttonGroup = elt.querySelector('[role="group"]');
     const textDiv = elt.querySelector('div[lang]:not([lang=""])');
@@ -26,23 +27,8 @@ new MutationObserver(() => {
   })
 }).observe(document, {subtree:true, childList:true})
 
-let buttons = []
-
 function getButton(str, textDisplay){
-  var bgColor = document.querySelector('body').style.backgroundColor;
-  var trtColorScheme = 'light';
-  if(bgColor == 'rgb(255, 255, 255)'){
-    trtColorScheme = 'light';
-  }
-  if(bgColor == 'rgb(21, 32, 43)'){
-    trtColorScheme = 'dim';
-  }
-  if(bgColor == 'rgb(0, 0, 0)'){
-    trtColorScheme = 'dark';
-  }
-
   let ele = document.createElement('div');
-  ele.className = '__focusOnContent '+trtColorScheme;
   ele.innerHTML = ''
   +'<button class="WButton" id="'+buttons.length+'">W</button>';
 
@@ -75,10 +61,7 @@ function getButton(str, textDisplay){
         }
       });
     }
-
-    
   }
-  buttons.push((str, ele));
   return ele;
 }
 
