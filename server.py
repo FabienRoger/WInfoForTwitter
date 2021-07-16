@@ -8,6 +8,7 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 import sqlite3
 from random import randint
+from tqdm import tqdm
 
 print('imports done !')
 
