@@ -1,0 +1,17 @@
+{
+  "name": "WikiRelated",
+  "description": "Gives you the Wikipedia sentences related to each tweet",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "css": [ "content.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "https://twitter.com/*" ],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "http://*/"
+  ]
+}

@@ -1,0 +1,7 @@
+tests.py
+test.ipynb
+server.db
+ml-sentence.csv
+embeddings.npy
+.ipynb_checkpoints
+wikipedia_en_20.csv
