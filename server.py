@@ -85,7 +85,7 @@ class Server(BaseHTTPRequestHandler):
         if None != re.search('/api/getmultiplesentence*', self.path):
             sentence = unquote(self.path.split('?')[1])
 
-            i = randint(1,2**62)
+            i = randint(1,2**50)
 
             results = get_most_similars(sentence, nb_sentences)
             sentences = [r[0] for r in results]

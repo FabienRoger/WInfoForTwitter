@@ -67,12 +67,27 @@ function getButton(str){
 
   ele.onclick = function(){
     let sp = ele.querySelector('span');
-    
     sp.classList.toggle("show");
-    httpGetAsync('http://localhost:8008/api/getsentence?'+encodeURI(str), (text) => {
-      let parsed = JSON.parse(text);
-      console.log(JSON.parse(text));
-      sp.textContent = parsed['mostsim'];
+    httpGetAsync('http://localhost:8008/api/getmultiplesentence?'+encodeURI(str), (response) => {
+      let parsed = JSON.parse(response);
+      console.log(parsed);
+      let id = parsed['id'];
+      let answer = parsed['answer'];
+      sp.innerHTML = '';
+
+      let answersHTML = [];
+      for(let i = 0;i<answer.length;i++){
+        answersHTML[i] = document.createElement('p');
+        answersHTML[i].textContent = answer[i]['sentence'];
+        answersHTML[i].onclick = function(){
+          httpPostAsync('http://localhost:8008/api/selectedsentence?questionid='+id+'&answerselected='+i, (_) => {});
+          window.open(answer[i]['wikiurl'], '_blank').focus();
+        }
+      }
+
+      for(let i = 0;i<answer.length;i++){
+        sp.appendChild(answersHTML[i]);
+      }
     });
   }
   buttons.push((str, ele));
