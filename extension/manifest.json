@@ -10,8 +10,5 @@
       "matches": [ "https://twitter.com/*" ],
       "run_at": "document_start"
     }
-  ],
-  "permissions": [
-    "http://*/"
   ]
 }
