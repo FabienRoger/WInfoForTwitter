@@ -52,7 +52,7 @@ $ python generator.py
 ```
 It takes an hour on GPU.
 
-Alternatively, if you use the same settings I did, you can download the embeddings at the end of <a href="https://www.kaggle.com/fabienroger/wikipedia-to-embeddings/output?select=embeddings.npy">this Kaggle notebook</a>.
+Alternatively, if you use the same settings I did, you can download the embeddings at the end of <a href="https://www.kaggle.com/fabienroger/wikipedia-to-embeddings/output?select=embeddings.npy">this Kaggle notebook</a>. Put the file next to server.py
 
 5. Run the server by running the following command:
 ```
