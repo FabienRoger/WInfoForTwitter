@@ -1,6 +1,6 @@
 {
-  "name": "WikiRelated",
-  "description": "Gives you the Wikipedia sentences related to each tweet",
+  "name": "WInfo",
+  "description": "Gives you the Wikipedia sentences most relevant to each tweet",
   "version": "1.0",
   "manifest_version": 2,
   "content_scripts": [

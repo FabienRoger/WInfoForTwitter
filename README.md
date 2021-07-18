@@ -1,4 +1,4 @@
-# WInfoForTwitter
+# WInfo For Twitter
 WInfoForTwitter is a Chrome extension that enables users to see the most relevant Wikipedia sentences related to any given tweet. 
 
 This repo contains the code for the extension and the server needed to support the Chrome extension.
@@ -29,7 +29,7 @@ This could help you get more information about the current subject of your atten
 
 1. Download the extension folder
 
-2. Open the Chrome extension settings by typing <a href="chrome://extensions/">chrome://extensions/</a> in the search bar
+2. Open the Chrome extension settings by typing ```chrome://extensions/``` in the search bar
 
 3. Toggle the Developper mode, load the compressed element and select the extension folder:
 
@@ -44,11 +44,11 @@ You might need to change the baseURL at the top of the content.js file in order 
 1. Download the server forlder
 2. Download the Wikipedia cleaned dataset at <a href="https://www.lateral.io/resources-blog/the-unknown-perils-of-mining-wikipedia">https://www.lateral.io/resources-blog/the-unknown-perils-of-mining-wikipedia</a>
 3. Create an empty "server.db" file next to server.py
-4. Generate the embeddings for the sentences of Wikipedia by running the following command :
+4. Generate the embeddings for the sentences of Wikipedia by running the following command:
 ```
 $ python generator.py
 ```
-5. Run the server by running the following command :
+5. Run the server by running the following command:
 ```
 $ python server.py
 ```
