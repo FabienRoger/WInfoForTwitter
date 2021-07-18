@@ -26,6 +26,12 @@ This could help you get more information about the current subject of your atten
 <div align="center">
   <img src="images/schema.png">
 </div>
+<br>
+
+The embeddings of the sentences are created using Huggin Face's sentence transformer named "bert-base-nli-mean-tokens". It uses the average of the bert tokens of each of of the sentence weighted by the attention mask.
+
+The similarity used here is the cosine similarity.
+
 
 ## How to install the extension
 
@@ -38,7 +44,7 @@ This could help you get more information about the current subject of your atten
 <div align="center">
   <img src="images/loadextension.png">
 </div>
-
+<br>
 You might need to change the baseURL at the top of the content.js file in order to match the address of the server currently running the server. By default, it is set to the address it has if you run server.js locally.
 
 ## How to run the server
@@ -58,7 +64,7 @@ Alternatively, if you use the same settings I did, you can download the embeddin
 ```
 $ python server.py
 ```
-It can take up to ten minutes if you're not using an SSD.
+It can take up to ten minutes to start the server if you're not using an SSD.
 
 ## Current limitations and possible improvements
 
