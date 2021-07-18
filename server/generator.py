@@ -40,7 +40,7 @@ def from_csv_full(filename, # The name of the csv file. The first column contain
     
     return sentences
 
-sentences = from_csv_full('wikipedia_en_20.csv', nrows=None, first_n_sentences=50, print_title=True, print_n_titles=20, use_nltk=False)
+sentences = from_csv_full('wikipedia_en_20.csv', nrows=None, article_min_size=100, first_n_sentences=10, print_title=False, use_nltk=True)
 
 model = SentenceTransformer('sentence-transformers/bert-base-nli-mean-tokens')
 
