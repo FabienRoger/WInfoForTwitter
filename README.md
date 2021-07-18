@@ -53,7 +53,7 @@ $ python generator.py
 $ python server.py
 ```
 
-## Current limitations and possible improvements.
+## Current limitations and possible improvements
 
 I do not have the funding to run a permanent server to support the extension. Feel free to run it yourself if you do !
 
