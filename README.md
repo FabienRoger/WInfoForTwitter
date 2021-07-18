@@ -33,7 +33,7 @@ This could help you get more information about the current subject of your atten
 
 2. Open the Chrome extension settings by typing ```chrome://extensions/``` in the search bar
 
-3. Toggle the Developper mode, load the compressed element and select the extension folder:
+3. Toggle the Developer mode, load the compressed element and select the extension folder:
 
 <div align="center">
   <img src="images/loadextension.png">
@@ -43,22 +43,26 @@ You might need to change the baseURL at the top of the content.js file in order 
 
 ## How to run the server
 
-1. Download the server forlder
-2. Download the Wikipedia cleaned dataset at <a href="https://www.lateral.io/resources-blog/the-unknown-perils-of-mining-wikipedia">https://www.lateral.io/resources-blog/the-unknown-perils-of-mining-wikipedia</a>
+1. Download the server folder
+2. Download the Wikipedia cleaned dataset at <a href="https://www.lateral.io/resources-blog/the-unknown-perils-of-mining-wikipedia">https://www.lateral.io/resources-blog/the-unknown-perils-of-mining-wikipedia</a> (~3GB) Extract the csv file and rename it ```wikipedia_en_20.csv```. Put it next to the server.js and generator.js files.
 3. Create an empty "server.db" file next to server.py
 4. Generate the embeddings for the sentences of Wikipedia by running the following command:
 ```
 $ python generator.py
 ```
+It takes an hour on GPU.
+
+Alternatively, if you use the same settings I did, you can download the embeddings at the end of <a href="https://www.kaggle.com/fabienroger/wikipedia-to-embeddings/output?select=embeddings.npy">this Kaggle notebook</a>.
 5. Run the server by running the following command:
 ```
 $ python server.py
 ```
+It can take up to ten minutes if you're not using an SSD.
 
 ## Current limitations and possible improvements
 
 I do not have the funding to run a permanent server to support the extension. Feel free to run it yourself if you do !
 
-With the current state of the algorithm, it is required that all the embeddings (~20GB if you load all of the dataset, ~2GB if you use the current parameters) are loaded into memory. It also requires considerable computing power : on 1 CPU, it takes a few seconds per request.
+With the current state of the algorithm, it is required that all the embeddings (~20GB if you load all the dataset, ~2GB if you use the current parameters) are loaded into memory. It also requires considerable computing power : on 1 CPU, it takes a few seconds per request.
 
 The cleaned Wikipedia dataset used here is from 2013. To make the algorithm able to deal with hot and recent topics, it would be necessary to create an updated dataset.
