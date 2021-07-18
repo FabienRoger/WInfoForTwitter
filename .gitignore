@@ -6,3 +6,4 @@ server/embeddings.npy
 embeddings old.npy
 .ipynb_checkpoints
 server/wikipedia_en_20.csv
+images/schema.drawio

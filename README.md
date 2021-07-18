@@ -23,7 +23,9 @@ This could help you get more information about the current subject of your atten
 
 ## How it works
 
-!image of a schema of the process
+<div align="center">
+  <img src="images/schema.png">
+</div>
 
 ## How to install the extension
 
