@@ -28,7 +28,7 @@ This could help you get more information about the current subject of your atten
 </div>
 <br>
 
-The embeddings of the sentences are created using Huggin Face's sentence transformer named "bert-base-nli-mean-tokens". It uses the average of the bert tokens of each of of the sentence weighted by the attention mask.
+The embeddings of the sentences are created using Hugging Face's sentence transformer named "paraphrase-MiniLM-L6-v2" which provides good sentence embeddings at a relatively low computing cost. It uses the average of the bert tokens of each of the sentence weighted by the attention mask. It only supports english.
 
 The similarity used here is the cosine similarity.
 
@@ -58,7 +58,7 @@ $ python generator.py
 ```
 It takes an hour on GPU.
 
-Alternatively, if you use the same settings I did, you can download the embeddings at the end of <a href="https://www.kaggle.com/fabienroger/wikipedia-to-embeddings/output?select=embeddings.npy">this Kaggle notebook</a>. Put the file next to server.py
+Alternatively, if you use the same settings I did, you can download the embeddings at the end of <a href="https://www.kaggle.com/fabienroger/wikipedia-to-embeddings-2/output">this Kaggle notebook</a>. Put the file next to server.py
 
 5. Run the server by running the following command:
 ```

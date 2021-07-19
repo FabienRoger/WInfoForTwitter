@@ -58,7 +58,7 @@ sentences = [(x[0],x[1], embeddings[i,:]) for i,x in enumerate(sentences)] # Put
 print('embeddings and sentences loaded !')
 
 # Load the embedding model
-model = SentenceTransformer('sentence-transformers/bert-base-nli-mean-tokens')
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 print('model loaded')
 
 # Connecting to the existing SQL database

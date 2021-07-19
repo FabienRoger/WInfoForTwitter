@@ -42,7 +42,7 @@ def from_csv_full(filename, # The name of the csv file. The first column contain
 
 sentences = from_csv_full('wikipedia_en_20.csv', nrows=None, article_min_size=100, first_n_sentences=10, print_title=False, use_nltk=True)
 
-model = SentenceTransformer('sentence-transformers/bert-base-nli-mean-tokens')
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
 print('computing embeddings...')
 
