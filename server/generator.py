@@ -43,6 +43,13 @@ def from_csv_full(filename='', # The name of the csv file. The first column cont
 
 sentences = from_csv_full(**config.sentence_loading_config)
 
+print('sentences loaded')
+
+sentence_df = pd.DataFrame(sentences, columns=['sentence','page'])
+sentence_df.to_csv(config.sentences_filename+'.csv')
+
+print('sentences saved')
+
 model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
 print('computing embeddings...')

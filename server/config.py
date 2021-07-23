@@ -8,4 +8,5 @@ sentence_loading_config = {
 }
 
 embedding_filename = 'embeddings' #.npy
+sentences_filename = 'sentences' #.csv
 database_filename = 'server' #.db

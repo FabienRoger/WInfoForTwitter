@@ -16,46 +16,13 @@ from . import config
 
 print('imports done !')
 
-def from_csv_full(filename, # The name of the csv file. The first column contains the page id (ex : wikipedia-253648) and the second column the content of the page
-                  nrows=10, # The numbers of row to read in the file. None to read the whole file
-                  first_n_sentences=None, # If set to an integer n, only keeps the first n sentences of each wikipedia page
-                  article_min_size=None, # If set to an integer n, only keeps articles with at least n sentences
-                  print_title=True, # Should the first print_n_titles pages titles be printed ?
-                  print_n_titles=20, 
-                  use_nltk=True # If True, uses the nltk tokenizer. Otherwise, uses a split on a simple regex.
-                  ):
-    # Returns a list of (sentence, page id) pairs found in the csv file given
-    
-    df = pd.read_csv(filename, nrows=nrows, names=['page', 'content'])
-
-    sentences = []
-
-    for i,row in tqdm(df.iterrows()):
-        # Print the title (which is considered to be the first 40 chars of the content) if it should be (see the arguments)
-        if print_title and i<print_n_titles: print(row['content'][:40])
-        
-        ss = sent_tokenize(row['content']) if use_nltk else re.split('\.|\!|\?|\=|;|\{|\}', row['content'])
-        
-        if article_min_size == None or len(ss) >= article_min_size:
-            sentence_nb = len(ss) if first_n_sentences == None else min(len(ss), first_n_sentences)
-            
-            # Adds each sentence found in the page to the sentences list
-            for i in range(sentence_nb):
-                s = ss[i]
-                if 16 <= len(s) <= 512: # Sentences too long or too short are considered to be errors to be eliminated
-                    sentences.append((s,row['page']))
-    
-    return sentences
-
-
-# The number of sentences returned to the client
-# Warning : it can't be changed without making other changes to the program
-nb_sentences = 3
-
 # Load the embeddings and the sentences
-sentences = from_csv_full(**config.sentence_loading_config)
+sdf = pd.read_csv(config.sentences_filename+'.csv')
+sentences = []
+for i,row in sdf.iterrows():
+    sentences.append((row['sentence'], row['page']))
+
 embeddings = np.load(config.embedding_filename+'.npy')
-sentences = [(x[0],x[1], embeddings[i,:]) for i,x in enumerate(sentences)] # Put the sentences and the embeddings together
 print('embeddings and sentences loaded !')
 
 # Load the embedding model
@@ -103,8 +70,8 @@ def get_most_similars(s, n):
     indexes = list(range(len(sentences)))
     indexes = sorted(indexes, key=lambda i:similarities[i], reverse=True)
 
-    # returns the best n ones (page id and sentence, but not the embeddings)
-    return [sentences[indexes[i]][0:2] for i in range(n)]
+    # returns the best n ones (page id and sentence)
+    return [sentences[indexes[i]] for i in range(n)]
 
 class Server(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -132,7 +99,7 @@ class Server(BaseHTTPRequestHandler):
 
             i = randint(1,2**50)
 
-            results = get_most_similars(sentence, nb_sentences)
+            results = get_most_similars(sentence, 3)
             sentences = [r[0] for r in results]
             wikiurls = ['https://en.wikipedia.org/?curid='+r[1].split('-')[1] for r in results]
             response = {'id':i, 'answer':[{'sentence': s, 'wikiurl': u} for (s,u) in zip(sentences, wikiurls)]}
