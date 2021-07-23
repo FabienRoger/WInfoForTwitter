@@ -4,7 +4,7 @@ server.db
 ml-sentence.csv
 server/embeddings.npy
 server/embeddings old 2.npy
-server/sentence.csv
+server/sentences.csv
 embeddings old.npy
 .ipynb_checkpoints
 server/wikipedia_en_20.csv
