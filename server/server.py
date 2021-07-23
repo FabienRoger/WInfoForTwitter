@@ -12,6 +12,7 @@ from sentence_transformers import SentenceTransformer
 import sqlite3
 from random import randint
 from tqdm import tqdm
+from . import config
 
 print('imports done !')
 
@@ -52,8 +53,8 @@ def from_csv_full(filename, # The name of the csv file. The first column contain
 nb_sentences = 3
 
 # Load the embeddings and the sentences
-sentences = from_csv_full('wikipedia_en_20.csv', nrows=None, article_min_size=100, first_n_sentences=10, print_title=False, use_nltk=True)
-embeddings = np.load('embeddings.npy')
+sentences = from_csv_full(**config.sentence_loading_config)
+embeddings = np.load(config.embedding_filename+'.npy')
 sentences = [(x[0],x[1], embeddings[i,:]) for i,x in enumerate(sentences)] # Put the sentences and the embeddings together
 print('embeddings and sentences loaded !')
 
@@ -62,7 +63,7 @@ model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 print('model loaded')
 
 # Connecting to the existing SQL database
-con = sqlite3.connect('server.db')
+con = sqlite3.connect(config.database_filename+'.db')
 cur = con.cursor()
 print('connected to database')
 
