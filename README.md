@@ -66,7 +66,6 @@ Alternatively, if you use the same settings I did, you can download the embeddin
 ```
 $ python server.py
 ```
-It can take up to ten minutes to start the server if you're not using an SSD.
 
 ## Current limitations and possible improvements
 
