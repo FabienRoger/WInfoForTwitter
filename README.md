@@ -3,6 +3,9 @@ WInfoForTwitter is a Chrome extension that enables users to see the most relevan
 
 This repo contains the code for the extension and the server needed to support the Chrome extension.
 
+Original idea by Siméon Campos and Fabien Roger.
+Conception, design and development by Fabien Roger.
+
 ## What it enables you to do
 
 When activated, the extension adds a button below each tweet.
