@@ -60,7 +60,7 @@ $ python generator.py
 ```
 It takes an hour on GPU.
 
-Alternatively, if you use the same settings I did, you can download the embeddings and the sentences at the end of <a href="https://www.kaggle.com/fabienroger/wikipedia-to-embeddings-2/output">this Kaggle notebook</a>. Put the file next to server.py
+Alternatively, if you use the same settings I did, you can download the embeddings and the sentences at the end of <a href="https://www.kaggle.com/fabienroger/wikipedia-to-embeddings-2/output">this Kaggle notebook</a>. Put the ```sentences.csv``` and ```embeddings.npy``` files next to server.py
 
 5. Run the server by running the following command:
 ```
