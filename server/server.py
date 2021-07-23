@@ -1,7 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from urllib.parse import urlparse, unquote
+from urllib.parse import unquote
 import json
-import cgi
 import re
 import numpy as np
 import pandas as pd
@@ -11,7 +10,6 @@ nltk.download('punkt')
 from sentence_transformers import SentenceTransformer
 import sqlite3
 from random import randint
-from tqdm import tqdm
 from . import config
 
 print('imports done !')
