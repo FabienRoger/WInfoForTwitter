@@ -1,3 +1,5 @@
+import config # local imports
+
 import numpy as np
 import pandas as pd
 import re
@@ -6,7 +8,6 @@ import nltk
 from nltk.tokenize import sent_tokenize
 nltk.download('punkt')
 from sentence_transformers import SentenceTransformer
-from . import config
 
 print('imports done !')
 

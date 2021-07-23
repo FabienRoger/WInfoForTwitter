@@ -1,3 +1,5 @@
+import config # local imports
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import unquote
 import json
@@ -10,7 +12,6 @@ nltk.download('punkt')
 from sentence_transformers import SentenceTransformer
 import sqlite3
 from random import randint
-from . import config
 
 print('imports done !')
 
