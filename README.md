@@ -28,10 +28,9 @@ This could help you get more information about the current subject of your atten
 </div>
 <br>
 
-The embeddings of the sentences are created using Hugging Face's sentence transformer named "paraphrase-MiniLM-L6-v2" which provides good sentence embeddings at a relatively low computing cost. It uses the average of the bert tokens of each word of the sentence weighted by the attention mask. It only supports english.
+The embeddings of the sentences are created using Hugging Face's sentence transformer named "paraphrase-MiniLM-L6-v2" which provides good sentence embeddings at a relatively low computing cost <a href="http://arxiv.org/abs/1908.10084">(Reimers 2019)</a>. It uses the average of the bert tokens of each word of the sentence weighted by the attention mask. It only supports english.
 
 The similarity used here is the cosine similarity.
-
 
 ## How to install the extension
 
