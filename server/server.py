@@ -22,6 +22,7 @@ for i,row in sdf.iterrows():
     sentences.append((row['sentence'], row['page']))
 
 embeddings = np.load(config.embedding_filename+'.npy')
+embeddings = embeddings/np.linalg.norm(embeddings, axis=1) # Normalize the embeddings
 print('embeddings and sentences loaded !')
 
 # Load the embedding model
@@ -45,10 +46,6 @@ except sqlite3.OperationalError: # Error thrown if the tables already exist
 
 # Helper functions to determine if two sentences are close or not
 
-def similarity(a,b):
-    # returns the cosine similarity between a and b (two 1-D np array)
-    return np.dot(a, b)/(np.linalg.norm(a)*np.linalg.norm(b))
-
 def embed(s):
     # get the embedding and flattens it
     return model.encode(s).reshape((-1))
@@ -62,8 +59,9 @@ def get_most_similars(s, n):
     # first embed the query
     e = embed(s)
 
-    # use vectorizing to compute the similarity between the querry and all the sentences
-    similarities = np.sum(e*embeddings, axis=1)/(np.linalg.norm(e)*np.linalg.norm(embeddings, axis=1))
+    # use vectorizing to compute the cosine similarity between the querry and all the sentences
+    # the embeddings are already normalized
+    similarities = np.sum(e*embeddings, axis=1)/np.linalg.norm(e)
 
     # sort every sentence in the dataset according to its similarity to the query
     indexes = list(range(len(sentences)))
