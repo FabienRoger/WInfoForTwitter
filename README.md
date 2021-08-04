@@ -35,6 +35,8 @@ The embeddings of the sentences are created using Hugging Face's sentence transf
 
 The similarity used here is the cosine similarity.
 
+<a href="https://faiss.ai/">Faiss</a> is used to accelerate the search.
+
 ## How to install the extension
 
 1. Download the extension folder
