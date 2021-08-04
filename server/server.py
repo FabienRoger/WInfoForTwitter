@@ -1,3 +1,5 @@
+
+
 import config # local imports
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
@@ -12,6 +14,7 @@ nltk.download('punkt')
 from sentence_transformers import SentenceTransformer
 import sqlite3
 from random import randint
+import faiss
 
 print('imports done !')
 
@@ -22,8 +25,14 @@ for i,row in sdf.iterrows():
     sentences.append((row['sentence'], row['page']))
 
 embeddings = np.load(config.embedding_filename+'.npy')
-embeddings = embeddings/np.linalg.norm(embeddings, axis=1) # Normalize the embeddings
+embeddings = embeddings/np.linalg.norm(embeddings, axis=1, keepdims=True) # Normalize the embeddings
 print('embeddings and sentences loaded !')
+
+# Construct the faiss index for the embeddings
+d = embeddings.shape[1]
+index = faiss.IndexFlatIP(d)
+index.add(embeddings)
+print('index constructed')
 
 # Load the embedding model
 model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
@@ -61,11 +70,14 @@ def get_most_similars(s, n):
 
     # use vectorizing to compute the cosine similarity between the querry and all the sentences
     # the embeddings are already normalized
-    similarities = np.sum(e*embeddings, axis=1)/np.linalg.norm(e)
+    #similarities = np.sum(e*embeddings, axis=1)/np.linalg.norm(e)
 
     # sort every sentence in the dataset according to its similarity to the query
-    indexes = list(range(len(sentences)))
-    indexes = sorted(indexes, key=lambda i:similarities[i], reverse=True)
+    #indexes = list(range(len(sentences)))
+    #indexes = sorted(indexes, key=lambda i:similarities[i], reverse=True)
+    query = e[None,:]
+    _, indexes = index.search(query, n)
+    indexes = list(indexes[0,:])
 
     # returns the best n ones (page id and sentence)
     return [sentences[indexes[i]] for i in range(n)]
