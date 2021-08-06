@@ -17,3 +17,4 @@ server/sentences old 1.csv
 .markdownlint.json
 images/schema old.png
 server/generator.py
+server/__pycache__/
