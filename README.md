@@ -1,4 +1,5 @@
 # WInfo Chrome Extension for Twitter
+
 WInfoForTwitter is a Chrome extension that enables users to see the most relevant Wikipedia sentences related to any given tweet.
 
 This repo contains the code for the extension and the server needed to support the Chrome extension.
@@ -37,12 +38,12 @@ The similarity used here is the cosine similarity.
 
 <a href="https://faiss.ai/">Faiss</a> is used to accelerate the search.
 
+Start-of-sentences pronouns are replaced by the Wikipedia page title before generating the embeddings. I've tried using coreference resolution using neuralcoref, but it didn't provide good enough results.
+
 ## How to install the extension
 
 1. Download the extension folder
-
 2. Open the Chrome extension settings by typing ```chrome://extensions/``` in the search bar
-
 3. Toggle the Developer mode, load the compressed element and select the extension folder:
 
 <div align="center">
@@ -54,22 +55,15 @@ You might need to change the baseURL at the top of the content.js file in order 
 ## How to run the server
 
 1. Download the server folder
-2. Download the Wikipedia cleaned dataset at <a href="<https://www.lateral.io/resources-blog/the-unknown-perils-of-mining-wikipedia>">https://www.lateral.io/resources-blog/the-unknown-perils-of-mining-wikipedia</a> (~3GB) Extract the csv file and rename it ```wikipedia_en_20.csv```. Put it next to the server.js and generator.js files.
-3. Create an empty "server.db" file next to server.py
-4. Generate the embeddings for the sentences of Wikipedia by running the following command:
-
-  ```bash
-  python generator.py
-  ```
-
-  It takes an hour on GPU.
-
-  Alternatively, if you use the same settings I did, you can download the embeddings and the sentences at the end of <a href="https://www.kaggle.com/fabienroger/wikipedia-to-embeddings-2/output">this Kaggle notebook</a>. Put the ```sentences.csv``` and ```embeddings.npy``` files next to server.py
-5. Run the server by running the following command:
+2. Create an empty "server.db" file next to server.py
+3. Download the embeddings and the sentences at the end of <a href="https://www.kaggle.com/fabienroger/sentences-of-wikipedia/output">this Kaggle notebook</a>. Put the ```sentences.csv``` and ```embeddings.npy``` files next to server.py
+4. Run the server by running the following command:
 
   ```bash
   python server.py
   ```
+
+If you want to use more up-to-date Wikipedia articles, use <a href="https://github.com/daveshap/PlainTextWikipedia">this code</a> by daveshap to create the Wikipedia dataset, then clean further and generate the sentnces and the embeddings using the code from <a href="https://www.kaggle.com/fabienroger/sentences-of-wikipedia">this Kaggle notebook</a>.
 
 ## Current limitations and possible improvements
 
