@@ -69,6 +69,4 @@ If you want to use more up-to-date Wikipedia articles, use <a href="https://gith
 
 I do not have the funding to run a permanent server to support the extension. Feel free to run it yourself if you do !
 
-With the current state of the algorithm, it is required that all the embeddings (~20GB if you load all the dataset, ~2GB if you use the current parameters) are loaded into memory. It also requires considerable computing power : on 1 CPU, it takes a few seconds per request.
-
-The cleaned Wikipedia dataset used here is from 2013. To make the algorithm able to deal with hot and recent topics, it would be necessary to create an updated dataset.
+With the current state of the algorithm, it is required that all the embeddings (~20GB if you load all the dataset, ~2GB if you use the current parameters) are loaded into memory. It also requires considerable computing power : on 1 CPU, it takes a half seconds per request, which might not be scalable.
