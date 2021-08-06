@@ -11,6 +11,15 @@ from sentence_transformers import SentenceTransformer
 
 print('imports done !')
 
+sentence_loading_config = {
+    'filename':'wikipedia_en_20.csv', 
+    'nrows':None, 
+    'article_min_size':100, 
+    'first_n_sentences':10, 
+    'print_title':False, 
+    'use_nltk':True
+}
+
 def from_csv_full(filename='', # The name of the csv file. The first column contains the page id (ex : wikipedia-253648) and the second column the content of the page
                   nrows=10, # The numbers of row to read in the file. None to read the whole file
                   first_n_sentences=None, # If set to an integer n, only keeps the first n sentences of each wikipedia page
@@ -42,7 +51,7 @@ def from_csv_full(filename='', # The name of the csv file. The first column cont
     
     return sentences
 
-sentences = from_csv_full(**config.sentence_loading_config)
+sentences = from_csv_full(**sentence_loading_config)
 
 print('sentences loaded')
 

@@ -25,6 +25,11 @@ sentences = []
 for i,row in sdf.iterrows():
     sentences.append((row['sentence'], row['page']))
 
+ddf = pd.read_csv(config.dict_filename+'.csv')
+id_to_title = {}
+for i,row in ddf.iterrows():
+    id_to_title[row['id']] = row['title']
+
 embeddings = np.load(config.embedding_filename+'.npy')
 embeddings = embeddings/np.linalg.norm(embeddings, axis=1, keepdims=True) # Normalize the embeddings
 print('embeddings and sentences loaded\n')
@@ -108,7 +113,7 @@ class Server(BaseHTTPRequestHandler):
             i = randint(1,2**50)
 
             results = get_most_similars(sentence, 3)
-            sentences = [r[0] for r in results]
+            sentences = [r[0]+' ('+id_to_title[str(r[1])]+')' for r in results]
             wikiurls = ['https://en.wikipedia.org/?curid='+str(r[1]) for r in results]
             response = {'id':i, 'answer':[{'sentence': s, 'wikiurl': u} for (s,u) in zip(sentences, wikiurls)]}
 

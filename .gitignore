@@ -15,3 +15,5 @@ metadata.txt
 server/index_to_name.csv
 server/sentences old 1.csv
 .markdownlint.json
+images/schema old.png
+server/generator.py
