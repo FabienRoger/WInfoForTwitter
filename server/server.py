@@ -97,7 +97,7 @@ class Server(BaseHTTPRequestHandler):
             sentence = unquote(self.path.split('?')[1])
 
             mostsim,id = get_most_similar(sentence)
-            wikiurl = 'https://en.wikipedia.org/?curid='+id.split('-')[0]
+            wikiurl = 'https://en.wikipedia.org/?curid='+str(id)
 
             self._set_headers()
             self.wfile.write(json.dumps({'mostsim': mostsim, 'wikiurl': wikiurl}).encode('utf-8'))
@@ -109,13 +109,13 @@ class Server(BaseHTTPRequestHandler):
 
             results = get_most_similars(sentence, 3)
             sentences = [r[0] for r in results]
-            wikiurls = ['https://en.wikipedia.org/?curid='+r[1].split('-')[1] for r in results]
+            wikiurls = ['https://en.wikipedia.org/?curid='+str(r[1]) for r in results]
             response = {'id':i, 'answer':[{'sentence': s, 'wikiurl': u} for (s,u) in zip(sentences, wikiurls)]}
 
             self._set_headers()
             self.wfile.write(json.dumps(response).encode('utf-8'))
 
-            responses = [r[0]+r[1] for r in results]
+            responses = [r[0]+'wikipedia-'+str(r[1]) for r in results]
             cur.execute("INSERT INTO requests VALUES (?, ?, ?, ?, ?)", (i, sentence, *responses))
             con.commit()
 
