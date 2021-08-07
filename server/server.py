@@ -28,7 +28,7 @@ for i,row in sdf.iterrows():
 ddf = pd.read_csv(config.dict_filename+'.csv')
 id_to_title = {}
 for i,row in ddf.iterrows():
-    id_to_title[row['id']] = row['title']
+    id_to_title[str(row['id'])] = row['title']
 
 embeddings = np.load(config.embedding_filename+'.npy')
 embeddings = embeddings/np.linalg.norm(embeddings, axis=1, keepdims=True) # Normalize the embeddings
