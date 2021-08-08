@@ -96,10 +96,8 @@ Here are the results :
 
 \* Example:
 
-Sentence of Wikipedia : The Human Torch is a real man, who runs a business at San Francisco.
-
-->
-
+Sentence of Wikipedia : The Human Torch is a real man, who runs a business at San Francisco.<br/>
+-><br/>
 Sentence fed to the model : The Human Torch is a fictional character, a superhero that appears in comic books published by Marvel Comics.
 
 
