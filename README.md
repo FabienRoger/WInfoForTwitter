@@ -86,7 +86,7 @@ Quick experiments were done to determine if the project was feasible and what ty
 
 Here are the results :
 
-| Method | big model | small model | USE model | small model with faiss |
+| Method | big model | **small model** | USE model | small model with faiss |
 | :- | :-: | :-: | :-: | :-: |
 | Top-1 Accuracy on tweets I created (at least the good subject) | 7/12 | 7/12 | 5/12 | 6/12 |
 | Top-1 Accuracy on opposite sentences* (exactly the right sentence) | 5/9 | 5/9 | not tested | 4/9 |
@@ -107,7 +107,7 @@ I made the experiments in the different versions of [this Kaggle notebook](https
 
 The performance of the algorithm is good enough if you keep in mind that 3 sentences are given to the user. Further experiments are needed to confirm that it is the case in "real world" scenario (all 3 sentences should be considered, and tweets should not be created based on what is on Wikipedia, but captured in the wild).
 
-We chose the small model because it seems to be as good as the big one while running faster and having a lower footprint in memory. The performance of the clustering of algorithm of faiss seems are not good enough to be used here.
+I chose the **small model** because it seems to be as good as the big one while running faster and having a lower footprint in memory. The performance of the clustering of algorithm of faiss seems are not good enough to be used here.
 
 ### Footnotes
 
