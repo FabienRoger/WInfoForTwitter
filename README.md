@@ -95,9 +95,13 @@ Here are the results :
 | Dimension of the embedded sentences | 768 | 384 | 500 | - |
 
 \* Example:
+
 Sentence of Wikipedia : The Human Torch is a real man, who runs a business at San Francisco.
+
 ->
+
 Sentence fed to the model : The Human Torch is a fictional character, a superhero that appears in comic books published by Marvel Comics.
+
 
 \** Because the USE model's embeddings were only generated for a small part of the dataset, the time displayed here is a linear extrapolation of what it would have been if the number of sentences in its dataset were the same as for the other models.
 
