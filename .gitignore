@@ -19,3 +19,4 @@ images/schema old.png
 server/generator.py
 server/__pycache__/
 server/__pycache__/config.cpython-36.pyc
+~$results.xlsx
