@@ -4,9 +4,6 @@ WInfoForTwitter is a Chrome extension that enables users to see the most relevan
 
 This repo contains the code for the extension and the server needed to support the Chrome extension.
 
-Original idea by Siméon Campos and Fabien Roger.
-Conception, design and development by Fabien Roger.
-
 ## What it enables you to do
 
 When activated, the extension adds a button below each tweet.
@@ -114,3 +111,5 @@ I chose the **small model** because it seems to be as good as the big one while 
 These experiments were done with the 2013 dataset which is not formatted in exactly the same way as the current dataset is. For instance, experiments were done without start-of-sentences pronoun replacement.
 
 The 2013 dataset, just as the 2020-11 dataset is not a full dataset of all the sentences of Wikipedia. It is a dataset containing only the first 10 sentences of large English Wikipedia articles (more than 100 sentences) due to RAM limitations (otherwise the embeddings do not fit in the memory of my laptop). The 2013 dataset contains 617,341 sentences, and the current one (2020-11 dataset) contains 1,536,475 sentences.
+
+Original idea by Fabien Roger and Siméon Campos.
