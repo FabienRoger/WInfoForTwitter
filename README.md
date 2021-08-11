@@ -54,7 +54,13 @@ You might need to change the baseURL at the top of the content.js file in order 
 1. Download the server folder
 2. Create an empty "server.db" file next to server.py
 3. Download the embeddings and the sentences at the end of [this Kaggle notebook](https://www.kaggle.com/fabienroger/sentences-of-wikipedia/output). Put the ```sentences.csv```, ```index_to_name.csv```  and ```embeddings.npy``` files next to server.py
-4. Run the server by running the following command:
+4. Install the requirements by running the following command:
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+5. Run the server by running the following command:
 
   ```bash
   python server.py
