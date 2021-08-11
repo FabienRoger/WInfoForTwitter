@@ -60,6 +60,12 @@ You might need to change the baseURL at the top of the content.js file in order 
   pip install -r requirements.txt
   ```
 
+  If installing faiss-gpu fails, run  
+
+  ```bash
+  pip install faiss-cpu
+  ```
+  
 5. Run the server by running the following command:
 
   ```bash
