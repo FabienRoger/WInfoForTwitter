@@ -1,0 +1,20 @@
+*.zip
+*.npy
+*.csv
+*.pyc
+*.db
+
+cdk.out
+__pycache__
+.ipynb_checkpoints
+.vscode
+
+# Old files
+tests.py
+test.ipynb
+images/schema.drawio
+metadata.txt
+.markdownlint.json
+images/schema old.png
+server/generator.py
+~$results.xlsx

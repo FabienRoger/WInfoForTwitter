@@ -1,0 +1,22 @@
+p{
+  font-family: "Helvetica";
+}
+
+.clickable:hover{
+  font-weight:bold;
+}
+
+.WButton{
+  vertical-align: middle;
+  align-self: center;
+  align-content: center;
+  background-color: lightgray;
+  border: none;
+  border-radius: 25px; 
+  color: black; 
+  padding: 10px 10px;
+}
+
+.WButton:hover{
+  background-color: gray;
+}
