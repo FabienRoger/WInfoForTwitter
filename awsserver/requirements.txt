@@ -1,0 +1,6 @@
+aws-cdk-lib>=2.0.0
+constructs>=10.0.0
+pandas==1.1.4
+numpy==1.19.3
+sentence_transformers==2.0.0
+faiss-cpu
