@@ -4,7 +4,7 @@ WInfoForTwitter is a Chrome extension that enables users to see the most relevan
 
 This repo contains the code for the extension and the python http server needed to support the Chrome extension.
 
-I currently run an AWS Lambda supporting a simplified version of the extension. The code to deploy the AWS lambda as well as the simplified extension itself it available in this repo.
+I currently run an AWS Lambda supporting a simplified version of the extension. The code to deploy the AWS lambda as well as the simplified extension itself it available in this repo. However, I do not have the funds to keep the Lambda warm: if you are using this, you will need to wait approximately 10 minutes for the service to start. Please contact me if you want to help funding this.
 
 ## What it enables you to do
 
